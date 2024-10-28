@@ -1,8 +1,7 @@
-
 configure terminal
 gpon
-onu profile vlan 1500 tag-mode tag cvlan 1500
-onu profile vlan 1501 tag-mode tag cvlan 1501
+onu profile vlan 4000 tag-mode tag cvlan 4000
+onu profile vlan 4001 tag-mode tag cvlan 4001
 profile tcont DADOS100MB type 4 maximum 102400
 !
 exit
@@ -19,7 +18,7 @@ tcont 4 profile DADOS100MB
 gemport 1 tcont 4
 !
 interface vport-1/2/16.19:1
-  service-port 1 user-vlan 1500 vlan 4000
+  service-port 1 user-vlan 4000 vlan 4000
   service-port 2 user-vlan 4001 vlan 4001
 !
 pon-onu-mng gpon_onu-1/2/16:19
@@ -29,9 +28,3 @@ pon-onu-mng gpon_onu-1/2/16:19
   vlan port eth_0/1 vlan 4000-4001
 !
 exit
-
-gpon
-onu profile vlan 1500 tag-mode tag cvlan 1500
-onu profile vlan 1501 tag-mode tag cvlan 1501
-profile tcont DADOS100MB type 4 maximum 102400
-!
